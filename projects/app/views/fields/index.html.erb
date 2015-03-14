@@ -60,15 +60,25 @@
             <div class="article">
                 <h2>Branch</h2>
                 <div class="clr"></div>
-                <p><%= link_to 'New field', new_field_path %></p>
-
-
+                <p><%= link_to 'Add Branch', new_field_path %></p>
             </div>
             <div class="article">
-                <h2>Why <span>Research Showcase</span>?</h2>
-                <div class="clr"></div>
-                <div class="clr"></div>
-                 <p align="justify">Research Showcase brings forth the scholarly work of students at IIIT-D. Exhibits of real-world applications will be on view and open for discussion, giving an opportunity to draw critical insights, and be a part of creative and intellectual activities. Faculty, staff, business and industry leaders will come together for a day of collaboration portraying how research adds value to the community.</p>
+              <table>
+                <tr>
+                  <th>Title</th>
+                  <th colspan="2"></th>
+                </tr>
+
+                <% @fields.each do |field| %>
+                <tr>
+                  <td><%= field.title %></td>
+                  <td><%= link_to 'Show', field_path(field) %></td>
+                  <td><%= link_to 'Edit', edit_field_path(field) %></td>
+                  <td><%= link_to 'Destroy', field_path(field),method: :delete,data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+              </table>
+
             </div>
 
         </div>
