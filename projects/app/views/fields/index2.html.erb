@@ -1,0 +1,18 @@
+<h1>Listing Fields</h1>
+ 
+<p><%= link_to 'New field', new_field_path %></p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @fields.each do |field| %>
+    <tr>
+      <td><%= field.title %></td>
+      <td><%= link_to 'Show', field_path(field) %></td>
+      <td><%= link_to 'Edit', edit_field_path(field) %></td>
+      <td><%= link_to 'Destroy', field_path(field),method: :delete,data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

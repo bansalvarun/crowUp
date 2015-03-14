@@ -1,4 +1,6 @@
 class FieldsController < ApplicationController
+	http_basic_authenticate_with name: "add", password: "secret", except: [:index, :show]
+	http_basic_authenticate_with name: "delete", password: "secret", only: :destroy
 	def index
     	@fields = Field.all
   	end
