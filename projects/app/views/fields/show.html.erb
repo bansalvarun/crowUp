@@ -7,8 +7,21 @@
   <strong>Text:</strong>
   <%= @field.text %>
 </p>
- <h2>Add a Project:</h2>
-<%= form_for([@field, @field.project.build]) do |f| %>
+<h2>Projects</h2>
+<% @field.projects.each do |f| %>
+  <p>
+    <strong>prof:</strong>
+    <%= f.prof %>
+  </p>
+ 
+  <p>
+    <strong>Project:</strong>
+    <%= f.body %>
+  </p>
+<% end %>
+
+ <h2>Add a project:</h2>
+<%= form_for([@field, @field.projects.build]) do |f| %>
   <p>
     <%= f.label :prof %><br>
     <%= f.text_field :prof %>
@@ -21,5 +34,6 @@
     <%= f.submit %>
   </p>
 <% end %>
+<p><%= link_to 'Edit', edit_field_path(@field) %></p>
 <p><%= link_to 'New field', new_field_path %></p>
 <p><%= link_to 'All fields', fields_path %></p>
