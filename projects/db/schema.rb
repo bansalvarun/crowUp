@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313191339) do
+ActiveRecord::Schema.define(version: 20150314011148) do
 
   create_table "fields", force: :cascade do |t|
     t.string   "title"
@@ -19,5 +19,15 @@ ActiveRecord::Schema.define(version: 20150313191339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "prof"
+    t.text     "body"
+    t.integer  "field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "projects", ["field_id"], name: "index_projects_on_field_id"
 
 end
